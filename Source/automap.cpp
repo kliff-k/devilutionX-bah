@@ -496,6 +496,34 @@ static void DrawAutomapPlr(int pnum)
 	}
 	y -= AmLine8;
 
+    // MM
+    {
+        int plrno;
+        for (plrno = 0; plrno < MAX_PLRS; plrno++) {
+            if (currlevel != plr[plrno].plrlevel || plr[plrno]._pmode == PM_QUIT) {
+                continue;
+            }
+            int color = COLOR_PLAYER;
+            if (plr[plrno]._pmode == PM_DEATH) {
+                color = PAL8_RED;
+            }
+
+            int x = plr[plrno]._px;
+            int y = plr[plrno]._py;
+            int px = x - 2 * AutoMapXOfs - ViewX;
+            int py = y - 2 * AutoMapYOfs - ViewY;
+
+            x = (plr[plrno]._pxoff * AutoMapScale / 100 >> 1) + (ScrollInfo._sxoff * AutoMapScale / 100 >> 1) + (px - py) * AmLine16 + 384;
+            y = (plr[plrno]._pyoff * AutoMapScale / 100 >> 1) + (ScrollInfo._syoff * AutoMapScale / 100 >> 1) + (px + py) * AmLine8 + 336;
+
+            if (invflag || sbookflag)
+                x -= 160;
+            if (chrflag || questlog)
+                x += 160;
+            y -= AmLine8;
+        }
+    }
+
 	switch (plr[pnum]._pdir) {
 	case DIR_N:
 		DrawLine(x, y, x, y - AmLine16, playerColor);
