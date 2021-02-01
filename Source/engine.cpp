@@ -651,6 +651,32 @@ void engine_draw_pixel(int sx, int sy)
 		*dst = gbPixelCol;
 }
 
+void DrawTransparentRectangle(int x0, int dx, int y0, int dy, int color) {
+    for (int y = y0; y < y0 + dy; y++) {
+        for (int x = x0; x < x0 + dx; x++) {
+            if (y % 2 == x % 2) {
+                continue;
+            }
+            gpBuffer[(SCREEN_Y + y) * BUFFER_WIDTH + SCREEN_X + x] = color;
+        }
+    }
+}
+
+void DrawSolidRectangle(int x0, int dx, int y0, int dy, int color) {
+    for (int y = y0; y < y0 + dy; y++) {
+        memset(&gpBuffer[(SCREEN_Y + y) * BUFFER_WIDTH + SCREEN_X + x0], color, dx);
+    }
+}
+
+int CalculateTextWidth(const char* s)
+{
+    int l = 0;
+    while (*s) {
+        l += fontkern[fontframe[gbFontTransTbl[*s++]]] + 1;
+    }
+    return l;
+}
+
 /**
  * @brief Draw a line on the back buffer
  * @param x0 Back buffer coordinate
