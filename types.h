@@ -16,6 +16,7 @@
 
 #include <limits.h>
 #include "defs.h"
+#include "fixes.h"
 #include "enums.h"
 #include "structs.h"
 
