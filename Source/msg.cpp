@@ -255,7 +255,7 @@ static BYTE *DeltaExportJunk(BYTE *dst)
 {
 	int i, q;
 
-	for (i = 0; i < MAXPORTAL; i++) {
+	for (i = 0; i < MAX_PLRS; i++) {
 		if (sgJunk.portal[i].x == 0xFF) {
 			*dst++ = 0xFF;
 		} else {
@@ -282,7 +282,7 @@ static void DeltaImportJunk(BYTE *src)
 {
 	int i, q;
 
-	for (i = 0; i < MAXPORTAL; i++) {
+	for (i = 0; i < MAX_PLRS; i++) {
 		if (*src == 0xFF) {
 			memset(&sgJunk.portal[i], 0xFF, sizeof(DPortal));
 			src++;

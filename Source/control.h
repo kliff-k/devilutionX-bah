@@ -30,6 +30,7 @@ extern BOOL chrbtnactive;
 extern BYTE *pPanelText;
 extern int pnumlines;
 extern BOOL pinfoflag;
+extern BOOL talkbtndown[MAX_PLRS - 1];
 extern int pSpell;
 extern char infoclr;
 extern char tempstr[256];

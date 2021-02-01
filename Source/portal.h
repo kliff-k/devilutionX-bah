@@ -12,7 +12,7 @@ DEVILUTION_BEGIN_NAMESPACE
 extern "C" {
 #endif
 
-extern PortalStruct portal[MAXPORTAL];
+extern PortalStruct portal[MAX_PLRS];
 
 void InitPortals();
 void SetPortalStats(int i, BOOL o, int x, int y, int lvl, int lvltype);
@@ -27,6 +27,10 @@ void SetCurrentPortal(int p);
 void GetPortalLevel();
 void GetPortalLvlPos();
 BOOL PosOkPortal(int lvl, int x, int y);
+
+/* rdata */
+extern int WarpDropX[MAX_PLRS];
+extern int WarpDropY[MAX_PLRS];
 
 #ifdef __cplusplus
 }

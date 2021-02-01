@@ -1112,10 +1112,8 @@ void InitMonsters()
 	if (gbMaxPlayers != 1)
 		CheckDungeonClear();
 	if (!setlevel) {
-		AddMonster(1, 0, 0, 0, FALSE);
-		AddMonster(1, 0, 0, 0, FALSE);
-		AddMonster(1, 0, 0, 0, FALSE);
-		AddMonster(1, 0, 0, 0, FALSE);
+        for (int j = 0; j < MAX_PLRS; j++)
+            AddMonster(1, 0, 0, 0, FALSE);
 	}
 
 	if (!gbIsSpawn && !setlevel && currlevel == 16)
@@ -1179,6 +1177,8 @@ void SetMapMonsters(BYTE *pMap, int startx, int starty)
 	int mtype;
 
 	AddMonsterType(MT_GOLEM, PLACE_SPECIAL);
+    for (int k = 0; k < MAX_PLRS; k++)
+        AddMonster(1, 0, 0, 0, FALSE);
 	AddMonster(1, 0, 0, 0, FALSE);
 	AddMonster(1, 0, 0, 0, FALSE);
 	AddMonster(1, 0, 0, 0, FALSE);

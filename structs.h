@@ -964,7 +964,7 @@ typedef struct MultiQuests {
 } MultiQuests;
 
 typedef struct DJunk {
-	DPortal portal[MAXPORTAL];
+	DPortal portal[MAX_PLRS];
 	MultiQuests quests[MAXMULTIQUESTS];
 } DJunk;
 #pragma pack(pop)
