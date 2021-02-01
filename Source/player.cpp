@@ -996,20 +996,20 @@ void AddPlrExperience(int pnum, int lvl, int exp)
 
 void AddPlrMonstExper(int lvl, int exp, char pmask)
 {
-	int totplrs, i, e;
+    int totplrs, i, e;
 
-	totplrs = 0;
-	for (i = 0; i < MAX_PLRS; i++) {
-		if ((1 << i) & pmask) {
-			totplrs++;
-		}
-	}
+    // MM: communism. Distribute points across players on the level.
+    totplrs = 0;
+    for (i = 0; i < MAX_PLRS; i++) {
+        if (currlevel == plr[i].plrlevel) {
+            totplrs++;
+        }
+    }
 
-	if (totplrs) {
-		e = exp / totplrs;
-		if (pmask & (1 << myplr))
-			AddPlrExperience(myplr, lvl, e);
-	}
+    if (totplrs) {
+        e = exp / totplrs;
+        AddPlrExperience(myplr, lvl, e);
+    }
 }
 
 void InitPlayer(int pnum, BOOL FirstTime)
