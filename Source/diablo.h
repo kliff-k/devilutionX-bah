@@ -20,6 +20,7 @@ extern int MouseY;
 extern BOOL gbRunGame;
 extern BOOL gbRunGameResult;
 extern BOOL zoomflag;
+extern BOOL drawitems;
 extern BOOL gbProcessPlayers;
 extern BOOL gbLoadGame;
 extern HINSTANCE ghInst;

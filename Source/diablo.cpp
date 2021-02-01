@@ -25,6 +25,7 @@ BOOL gbGameLoopStartup;
 BOOL gbRunGame;
 BOOL gbRunGameResult;
 BOOL zoomflag;
+BOOL drawitems;
 /** Enable updating of player character, set to false once Diablo dies */
 BOOL gbProcessPlayers;
 BOOL gbLoadGame;
@@ -780,6 +781,9 @@ static void ReleaseKey(int vkey)
 {
 	if (vkey == DVL_VK_SNAPSHOT)
 		CaptureScreen();
+
+    if (vkey == DVL_VK_MENU || vkey == DVL_VK_LMENU || vkey == DVL_VK_RMENU)
+        drawitems = false;
 }
 
 BOOL PressEscKey()
@@ -1000,6 +1004,8 @@ static void PressKey(int vkey)
 		if (stextflag) {
 			STextNext();
 		}
+    } else if(vkey == DVL_VK_MENU || vkey == DVL_VK_LMENU || vkey == DVL_VK_RMENU) {
+        drawitems = true;
 	} else if (vkey == DVL_VK_LEFT) {
 		if (automapflag && !talkflag) {
 			AutomapLeft();
