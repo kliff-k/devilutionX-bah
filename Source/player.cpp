@@ -1955,7 +1955,7 @@ StartPlayerKill(int pnum, int earflag)
 			}
 
 			if (!diablolevel) {
-				DropHalfPlayersGold(pnum);
+//				DropHalfPlayersGold(pnum);
 				if (earflag != -1) {
 					if (earflag != 0) {
 						SetPlrHandItem(&ear, IDI_EAR);
@@ -1975,14 +1975,14 @@ StartPlayerKill(int pnum, int earflag)
 						ear._ivalue = plr[pnum]._pLevel;
 
 						if (FindGetItem(IDI_EAR, ear._iCreateInfo, ear._iSeed) == -1) {
-							PlrDeadItem(pnum, &ear, 0, 0);
+//							PlrDeadItem(pnum, &ear, 0, 0);
 						}
 					} else {
 						pi = &p->InvBody[0];
 						i = NUM_INVLOC;
 						while (i--) {
 							pdd = (i + p->_pdir) & 7;
-							PlrDeadItem(pnum, pi, offset_x[pdd], offset_y[pdd]);
+//							PlrDeadItem(pnum, pi, offset_x[pdd], offset_y[pdd]);
 							pi++;
 						}
 
