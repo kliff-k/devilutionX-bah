@@ -17,6 +17,7 @@ comparer-config.toml
 
 #ignore cmake cache
 /build-*/
+/cmake-build-debug/
 .vscode/tasks.json
 
 # ELF object file, shared library and object archive.
