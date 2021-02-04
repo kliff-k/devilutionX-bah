@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.10) # CMP0083 NEW
 include(CMake/out_of_tree.cmake)
 include(CMake/genex.cmake)
 
+# There are some bugs going on when trying to cross compile from CLion
+# Also, the build breaks when trying to compile to windows with the Release flag on
+# I'll investigate these today
+
 DEBUG_OPTION(ASAN "Enable address sanitizer")
 DEBUG_OPTION(UBSAN "Enable undefined behaviour sanitizer")
 DEBUG_OPTION(DEBUG "Enable debug mode in engine")
