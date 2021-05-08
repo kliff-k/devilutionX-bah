@@ -44,5 +44,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: devilutionX-wbah
-        path: ${{github.workspace}}/build # or path/to/artifact
+        path: ${{github.workspace}}/build/devilutionx # or path/to/artifact
       
